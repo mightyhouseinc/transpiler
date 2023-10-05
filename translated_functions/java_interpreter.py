@@ -100,8 +100,8 @@ class c(c_math):
 	@staticmethod
 	def strlen(a):
 		return len(a)
-	def strcmp(a,b):
-		return a == b
+	def strcmp(self, b):
+		return self == b
 
 class prolog(c_math):
 	def __init__(self,a):
@@ -111,7 +111,7 @@ class prolog(c_math):
 		return type(a) == list
 	@staticmethod
 	def var(a):
-		return a == None
+		return a is None
 	@staticmethod
 	def nonvar(a):
 		return a != None
@@ -271,9 +271,9 @@ class php(c_math):
 			return hashlib.sha256(b.encode() ).hexdigest()
 		elif a == 'md4':
 			return hashlib.new("md4",b.encode('utf-16le')).hexdigest()
-	def md5(a):
+	def md5(self):
 		m = hashlib.md5()
-		m.update(a.encode('utf-8'))
+		m.update(self.encode('utf-8'))
 		return m.hexdigest()
 	@staticmethod
 	def sha1(a):
@@ -293,7 +293,7 @@ class php(c_math):
 			return "array"
 		elif type(a) == float:
 			return "double"
-		elif type(a) == None:
+		elif type(a) is None:
 			return "NULL"
 class lua():
 	class math(c_math):
